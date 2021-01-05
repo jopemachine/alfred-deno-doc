@@ -1,1 +1,1 @@
-# alfred-deno-documentation
+# alfred-deno-doc

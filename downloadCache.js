@@ -1,14 +1,32 @@
-const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const driver = new webdriver.Builder().forBrowser('chrome').build();
-const sleep = require('sleep');
-const fs = require('fs');
+const webdriver = require("selenium-webdriver");
+const By = require("selenium-webdriver").By;
+const chrome = require("selenium-webdriver/chrome");
+const sleep = require("sleep");
+const fs = require("fs");
 
-driver.get('https://doc.deno.land/builtin/stable');
-sleep.sleep(3);
+(async function main() {
+  const driver = new webdriver.Builder().forBrowser("chrome").build();
+  await driver.get("https://doc.deno.land/builtin/stable");
+  sleep.sleep(3);
 
+  const texts = await driver.findElements(By.css("nav div div p"));
+  const api = {};
+  const apiNameList = [];
 
-fs.writeFile("cache.json", data, "utf8", function (error) {
-  console.log("write end");
-});
+  for (const text of texts) {
+    const apiName = await text.getText();
+    apiNameList.push(apiName);
+  }
 
+  //   const descList = await driver.findElements(By.css("main div div "));
+
+  for (const apiName of apiNameList) {
+    const apiCard = await driver.findElement(By.id(apiName));
+    if (apiName === "Deno") continue;
+    api[apiName] = await apiCard.getText();
+  }
+
+  fs.writeFileSync("cache.json", "\ufeff" + JSON.stringify(api, null, 2), {
+    encoding: "utf8",
+  });
+})();
