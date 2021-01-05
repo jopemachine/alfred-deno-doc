@@ -3,6 +3,9 @@ const By = require("selenium-webdriver").By;
 const chrome = require("selenium-webdriver/chrome");
 const sleep = require("sleep");
 const fs = require("fs");
+const utf8Encoding = {
+  encoding: "utf8",
+};
 
 (async function main() {
   const driver = new webdriver.Builder().forBrowser("chrome").build();
@@ -18,7 +21,7 @@ const fs = require("fs");
     apiNameList.push(apiName);
   }
 
-  //   const descList = await driver.findElements(By.css("main div div "));
+  // !fs.existsSync("cache") && fs.mkdirSync("cache");
 
   for (const apiName of apiNameList) {
     const apiCard = await driver.findElement(By.id(apiName));
@@ -26,7 +29,9 @@ const fs = require("fs");
     api[apiName] = await apiCard.getText();
   }
 
-  fs.writeFileSync("cache.json", "\ufeff" + JSON.stringify(api, null, 2), {
-    encoding: "utf8",
-  });
+  fs.writeFileSync(
+    "cache.json",
+    "\ufeff" + JSON.stringify(api, null, 2),
+    utf8Encoding
+  );
 })();

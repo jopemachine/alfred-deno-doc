@@ -1,6 +1,7 @@
 # Logs
 .DS_Store
 cache.json
+cache
 
 logs
 *.log

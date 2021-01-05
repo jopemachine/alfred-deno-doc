@@ -1,6 +1,6 @@
 const cache = require("./cache.json");
 const alfy = require("alfy");
-
+const path = require('path');
 const result = [];
 const apiNames = Object.keys(cache);
 
@@ -14,7 +14,8 @@ for (const apiName of apiNames) {
         copy: apiName,
         largetype: apiName,
       },
-      arg: apiName,
+      arg: `https://doc.deno.land/builtin/stable#${apiName}`,
+      // quicklookurl: `${__dirname}${path.sep}cache${path.sep}${apiName}.html`
     });
   }
 }
