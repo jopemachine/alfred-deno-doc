@@ -33,6 +33,6 @@ Argument: term to search
 
 By default, searches are done for api names only.
 
-To search the entire doc, attach a `-c`.
+To search the entire doc, attach `-c` after your search word.
 
 <img src="./image/option_c.png">
