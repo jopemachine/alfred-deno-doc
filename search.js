@@ -35,6 +35,7 @@ for (const apiName of apiNames) {
         largetype: apiName,
       },
       arg: `https://doc.deno.land/builtin/stable#${apiName}`,
+      quicklookurl: `https://doc.deno.land/builtin/stable#${apiName}`,
       // quicklookurl: `${__dirname}${path.sep}cache${path.sep}${apiName}.html`
     });
   }
