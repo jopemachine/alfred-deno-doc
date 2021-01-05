@@ -1,10 +1,10 @@
 const alfy = require("alfy");
 
-if (!require('fs').existsSync('cache.json')) {
+if (!require("fs").existsSync("cache.json")) {
   alfy.output([
     {
-      title: `Please run "deno > cache" first`
-    }
+      title: `Please run "deno > cache" first`,
+    },
   ]);
   return;
 }
@@ -15,8 +15,17 @@ const path = require("path");
 const result = [];
 const apiNames = Object.keys(cache);
 
+let searchContents = false;
+if (alfy.input.endsWith(' -c')) {
+  searchContents = true;
+  alfy.input = alfy.input.split(' -c')[0];
+}
+
 for (const apiName of apiNames) {
-  if (apiName.toLowerCase().includes(alfy.input.toLowerCase())) {
+  if (
+    apiName.toLowerCase().includes(alfy.input.toLowerCase()) ||
+    (searchContents && cache[apiName].toLowerCase().includes(alfy.input.toLowerCase()))
+  ) {
     result.push({
       title: apiName,
       subtitle: cache[apiName],

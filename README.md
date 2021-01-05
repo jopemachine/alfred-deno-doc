@@ -31,3 +31,8 @@ $ npm install --global alfred-deno-doc
 
 Argument: term to search
 
+By default, searches are done for api names only.
+
+To search the entire doc, attach a `-c`.
+
+<img src="./image/option_c.png">
