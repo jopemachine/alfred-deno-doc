@@ -1,9 +1,19 @@
-const cache = require("./cache.json");
 const alfy = require("alfy");
+
+if (!require('fs').existsSync('cache.json')) {
+  alfy.output([
+    {
+      title: `Please run "deno > cache" first`
+    }
+  ]);
+  return;
+}
+
+const cache = require("./cache.json");
 const path = require("path");
-const apiNames = Object.keys(cache);
 
 const result = [];
+const apiNames = Object.keys(cache);
 
 for (const apiName of apiNames) {
   if (apiName.toLowerCase().includes(alfy.input.toLowerCase())) {

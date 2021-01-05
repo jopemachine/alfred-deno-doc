@@ -34,6 +34,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>C7C94E66-859A-485B-A137-16D2B6973F45</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DA679E66-3BDC-4EF8-9978-0440FF6C0209</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>jopemachine</string>
@@ -45,6 +58,27 @@
 	<string>alfred-deno-doc</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Deno doc caching complete</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>DA679E66-3BDC-4EF8-9978-0440FF6C0209</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -72,7 +106,7 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>keyword</key>
 				<string>deno &gt; cache</string>
 				<key>subtext</key>
@@ -80,7 +114,7 @@
 				<key>text</key>
 				<string>deno &gt; cache</string>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
@@ -187,6 +221,13 @@
 		<dict>
 			<key>xpos</key>
 			<integer>360</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>DA679E66-3BDC-4EF8-9978-0440FF6C0209</key>
+		<dict>
+			<key>xpos</key>
+			<integer>510</integer>
 			<key>ypos</key>
 			<integer>190</integer>
 		</dict>
