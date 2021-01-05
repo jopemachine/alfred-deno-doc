@@ -1,11 +1,12 @@
 const cache = require("./cache.json");
 const alfy = require("alfy");
-const path = require('path');
-const result = [];
+const path = require("path");
 const apiNames = Object.keys(cache);
 
+const result = [];
+
 for (const apiName of apiNames) {
-  if (apiName.includes(alfy.input)) {
+  if (apiName.toLowerCase().includes(alfy.input.toLowerCase())) {
     result.push({
       title: apiName,
       subtitle: cache[apiName],
