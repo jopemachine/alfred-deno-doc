@@ -27,5 +27,12 @@
     "deno",
     "documentation",
     "alfy"
+  ],
+  "files": [
+    "*.js",
+    "chromedriver",
+    "icon.png",
+    "info.plist",
+    "LICENSE"
   ]
 }

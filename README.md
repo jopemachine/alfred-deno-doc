@@ -3,6 +3,8 @@
 
 Search deno documentation through Alfred 4
 
+<img src="./image/demo.png">
+
 ## 📌 Prerequisite
 
 * Node JS
@@ -19,7 +21,7 @@ Search deno documentation through Alfred 4
 $ npm install --global alfred-deno-doc
 ```
 
-2. `deno > cache` first
+2. Run `deno > cache`
 
 ## 📗 How to use
 
