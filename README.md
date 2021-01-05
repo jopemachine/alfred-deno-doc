@@ -21,7 +21,7 @@ Search deno documentation through Alfred 4
 $ npm install --global alfred-deno-doc
 ```
 
-2. Run `deno > cache`
+2. Run `deno > cache` and wait until notification shows up
 
 ## 📗 How to use
 

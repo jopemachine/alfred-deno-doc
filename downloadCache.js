@@ -1,6 +1,5 @@
 const webdriver = require("selenium-webdriver");
 const By = require("selenium-webdriver").By;
-const chrome = require("selenium-webdriver/chrome");
 const sleep = require("sleep");
 const fs = require("fs");
 const utf8Encoding = {
