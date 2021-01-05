@@ -3,7 +3,9 @@
 
 Search deno documentation through Alfred 4
 
+<p align="center">
 <img src="./image/demo.png">
+</p>
 
 ## 📌 Prerequisite
 
