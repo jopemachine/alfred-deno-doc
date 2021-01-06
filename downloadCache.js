@@ -9,29 +9,33 @@ const utf8Encoding = {
 };
 
 (async function main() {
-  const driver = new webdriver.Builder().forBrowser("chrome").build();
-  await driver.get(API.RUNTIME_API);
-  sleep.sleep(3);
+  try {
+    const driver = new webdriver.Builder().forBrowser("chrome").build();
 
-  const texts = await driver.findElements(By.css("nav div div p"));
-  const api = {};
-  const apiNameList = [];
+    await driver.get(API.RUNTIME_API);
+    sleep.sleep(3);
 
-  for (const text of texts) {
-    const apiName = await text.getText();
-    apiNameList.push(apiName);
+    const texts = await driver.findElements(By.css("nav div div p"));
+    const api = {};
+    const apiNameList = [];
+
+    for (const text of texts) {
+      const apiName = await text.getText();
+      apiNameList.push(apiName);
+    }
+
+    // !fs.existsSync("cache") && fs.mkdirSync("cache");
+
+    for (const apiName of apiNameList) {
+      const apiCard = await driver.findElement(By.id(apiName));
+      if (apiName === "Deno") continue;
+      api[apiName] = await apiCard.getText();
+    }
+
+    await driver.close();
+  } catch (e) {
+    console.log("error");
   }
-
-  // !fs.existsSync("cache") && fs.mkdirSync("cache");
-
-  for (const apiName of apiNameList) {
-    const apiCard = await driver.findElement(By.id(apiName));
-    if (apiName === "Deno") continue;
-    api[apiName] = await apiCard.getText();
-  }
-
-  await driver.close();
-
   fs.writeFileSync(
     "cache.json",
     "\ufeff" + JSON.stringify(api, null, 2),
