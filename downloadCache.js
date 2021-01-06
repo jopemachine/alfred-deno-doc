@@ -2,13 +2,15 @@ const webdriver = require("selenium-webdriver");
 const By = require("selenium-webdriver").By;
 const sleep = require("sleep");
 const fs = require("fs");
+const API = require("./api.js");
+
 const utf8Encoding = {
   encoding: "utf8",
 };
 
 (async function main() {
   const driver = new webdriver.Builder().forBrowser("chrome").build();
-  await driver.get("https://doc.deno.land/builtin/stable");
+  await driver.get(API.RUNTIME_API);
   sleep.sleep(3);
 
   const texts = await driver.findElements(By.css("nav div div p"));
@@ -27,6 +29,8 @@ const utf8Encoding = {
     if (apiName === "Deno") continue;
     api[apiName] = await apiCard.getText();
   }
+
+  await driver.close();
 
   fs.writeFileSync(
     "cache.json",

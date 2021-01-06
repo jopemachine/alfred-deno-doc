@@ -1,7 +1,7 @@
 # alfred-deno-doc
 <img src="https://img.shields.io/github/license/jopemachine/alfred-deno-doc.svg" alt="License">
 
-Search deno documentation through Alfred 4
+Search [deno documentation](https://doc.deno.land/builtin/stable) through Alfred 4.
 
 <p align="center">
 <img src="./image/demo.png">
